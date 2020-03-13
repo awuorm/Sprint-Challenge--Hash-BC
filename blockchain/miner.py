@@ -40,9 +40,8 @@ def valid_proof(last_hash, proof):
 
     IE:  last_hash: ...AE9123456, new hash 123456E88...
     """
-
+    #TODO 
     current_hash = hashlib.sha256(f'{proof}'.encode()).hexdigest()
-
     return last_hash[-6:] == current_hash[:6]
 
    # https://lambda-coin-test-1.herokuapp.com/api
@@ -52,7 +51,7 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         node = sys.argv[1]
     else:
-        node = "https://lambda-coin-test-1.herokuapp.com/api"
+        node = "https://lambda-coin.herokuapp.com/api"
 
     coins_mined = 0
 
