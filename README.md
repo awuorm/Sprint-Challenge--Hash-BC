@@ -23,12 +23,29 @@ This sprint challenge is divided up into three parts:  Hash tables coding, block
 ## Interview Questions
 
 Explain in detail the workings of a dynamic array:
+ A dynamic array has automatic resizing. A dynamic array expands as you add more elements. So you don't need to determine the size ahead of time. 
+
 * What is the runtime complexity to access an array, add or remove from the front, and add or remove from the back?
+        access - O(1)
+        add(front) - O(n)
+        remove(front)- O(n)
+        add(back)- O(1)
+        remove(back)-O(n)
+
 * What is the worse case scenario if you try to extend the storage size of a dynamic array?
+    The worst case scenario is a runtime complexity of O(n)
 
 Explain how a blockchain is structured. What are the blocks, what is the chain? How is the data organized?
+The blockchain data structure is a back-linked record of blocks of transactions, which is ordered.Each block can be recognized by a hash, created utilizing the SHA256 cryptographic hash algorithm on the header of the block.
+
+The chain is the structure that contains all of the transactions recorded. It is publicly available.Each link in the chain is called a block.
+
+A block is a container data structure that clusters transactions for incorporation in the public ledger known as the blockchain. Each block mentions a former block, also identified as the parent block, in the “previous block hash” field, in the block header.
+
  
 Explain how proof of work functions. How does it operate. How does this protect the chain from attack. What kind of attack is possible?
+
+Proof-of-Work is the original consensus algorithm in a Blockchain network.It is used to confirm transactions and produce new blocks to the chain. With proof of work, miners compete against each other to complete transactions on the network and get rewarded.
 
 ## Project Set Up
 
