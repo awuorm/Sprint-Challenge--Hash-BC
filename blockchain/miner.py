@@ -20,12 +20,14 @@ def proof_of_work(last_proof):
     - Use the same method to generate SHA-256 hashes as the examples in class
     """
 
+    previous_hash = hashlib.sha256(f'{last_proof}'.encode()).hexdigest()
     start = timer()
 
     print("Searching for next proof")
     proof = 0
     #  TODO: Your code here
-
+    while not valid_proof(previous_hash, proof):
+        proof += 3126
     print("Proof found: " + str(proof) + " in " + str(timer() - start))
     return proof
 
@@ -39,16 +41,18 @@ def valid_proof(last_hash, proof):
     IE:  last_hash: ...AE9123456, new hash 123456E88...
     """
 
-    # TODO: Your code here!
-    pass
+    current_hash = hashlib.sha256(f'{proof}'.encode()).hexdigest()
 
+    return last_hash[-6:] == current_hash[:6]
 
+   # https://lambda-coin-test-1.herokuapp.com/api
+   # https://lambda-coin.herokuapp.com/api
 if __name__ == '__main__':
     # What node are we interacting with?
     if len(sys.argv) > 1:
         node = sys.argv[1]
     else:
-        node = "https://lambda-coin.herokuapp.com/api"
+        node = "https://lambda-coin-test-1.herokuapp.com/api"
 
     coins_mined = 0
 

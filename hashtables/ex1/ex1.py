@@ -8,7 +8,7 @@ from hashtables import (HashTable,
 
 def get_indices_of_item_weights(weights, length, limit):
     ht = HashTable(16)
-    # Use the built in enumerate method to extract the index and weight (key/value)
+    # Use the enumerate method to extract the index and weight (key/value)
     for index, weight in enumerate(weights):
         #insert the weight as key and the index as value to the hash table
         hash_table_insert(ht, weight, index)
